@@ -62,7 +62,7 @@ bruteforce() {
         if grep -q 80/tcp Scans/${1}/${1}.txt; then
                 echo -e "[${yellow}**${default}] Port 80(HTTP) is open. Starting bruteforce...\n"
 		sleep 1
-		hydra -L "dic/Top20_Admin_Username.txt" -P "/dic/Top100.txt" $1 http-get -f -q -e ns -o Output/${1}/http-get_${1}.txt -I / -t $thread
+		hydra -L "dic/Top20_Admin_Username.txt" -P "dic/Top100.txt" $1 http-get -f -q -e ns -o Output/${1}/http-get_${1}.txt -I / -t $thread
                 finished_brute $1
         fi
 
