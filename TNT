@@ -147,42 +147,42 @@ bruteforce() {
         if grep -q 1521/tcp Scans/${1}/${1}.txt; then
                 echo -e "[${yellow}**${default}] Port 1521(oracle) is open. Starting bruteforce...\n"
 		sleep 1
-		hydra -L "dic_username_oracle.txt" -P "dic_password_oracle.txt" $1 oracle -S 1521 -e ns -o Output/${1}/oracle_${1}.txt -I -t $thread
+		hydra -L "dic/dic_username_oracle.txt" -P "dic/dic_password_oracle.txt" $1 oracle -S 1521 -e ns -o Output/${1}/oracle_${1}.txt -I -t $thread
                 finished_brute $1
         fi
 
         if grep -q 3306/tcp Scans/${1}/${1}.txt; then
                 echo -e "[${yellow}**${default}] Port 3306(mysql) is open. Starting bruteforce...\n"
 		sleep 1
-		hydra -L "dic_username_mysql.txt" -P "dic_password_mysql.txt" $1 mysql -e ns -o Output/${1}/mysql_${1}.txt -I -t $thread
+		hydra -L "dic/dic_username_mysql.txt" -P "dic/dic_password_mysql.txt" $1 mysql -e ns -o Output/${1}/mysql_${1}.txt -I -t $thread
                 finished_brute $1
         fi
 
         if grep -q 3389/tcp Scans/${1}/${1}.txt; then
                 echo -e "[${yellow}**${default}] Port 3389(RDP) is open. Starting bruteforce...\n"
 		sleep 1
-		hydra -L "dic_username_rdp.txt" -P "dic_password_rdp.txt" $1 rdp -e ns -o Output/${1}/rdp_${1}.txt -I -t $thread
+		hydra -L "dic/dic_username_rdp.txt" -P "dic/dic_password_rdp.txt" $1 rdp -e ns -o Output/${1}/rdp_${1}.txt -I -t $thread
 		finished_brute $1
         fi
 
         if grep -q 5432/tcp Scans/${1}/${1}.txt; then
                 echo -e "[${yellow}**${default}] Port 5432(postgres) is open. Starting bruteforce...\n"
 		sleep 1
-		hydra -L "dic_username_postgresql.txt" -P "dic_password_postgresql.txt" $1 postgres -e ns -o Output/${1}/postgres_${1}.txt -I -t $thread
+		hydra -L "dic/dic_username_postgresql.txt" -P "dic/dic_password_postgresql.txt" $1 postgres -e ns -o Output/${1}/postgres_${1}.txt -I -t $thread
 		finished_brute $1
         fi
 
         if grep -q 5900/tcp Scans/${1}/${1}.txt; then
                 echo -e "[${yellow}**${default}] Port 5900(VNC) is open. Starting bruteforce...\n"
 		sleep 1
-		hydra -L "dic_username_vnc.txt" -P "dic_password_vnc.txt" $1 vnc -S 5900 -e ns -o Output/${1}/vnc_5900_${1}.txt -I -t $thread
+		hydra -L "dic/dic_username_vnc.txt" -P "dic/dic_password_vnc.txt" $1 vnc -S 5900 -e ns -o Output/${1}/vnc_5900_${1}.txt -I -t $thread
 		finished_brute $1
         fi
 
         if grep -q 5901/tcp Scans/${1}/${1}.txt; then
                 echo -e "[${yellow}**${default}] Port 5901(VNC) is open. Starting bruteforce...\n"
 		sleep 1
-		hydra -L "dic_username_vnc.txt" -P "dic_password_vnc.txt" $1 vnc -S 5901 -e ns -o Output/${1}/vnc_5901_${1}.txt -I -t $thread
+		hydra -L "dic/dic_username_vnc.txt" -P "dic/dic_password_vnc.txt" $1 vnc -S 5901 -e ns -o Output/${1}/vnc_5901_${1}.txt -I -t $thread
 		finished_brute $1
         fi
 
