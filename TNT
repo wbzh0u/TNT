@@ -24,7 +24,7 @@ port_scan() {
 	echo -e "[${yellow}**${default}] Target: ${yellow} $1 ${default} Number of threads: ${yellow} ${thread} ${default}."
 	echo -e "[${yellow}**${default}] Starting agressive scan of supported ports against: ${1} ...\n"
 	sleep 1
-	nmap -T4 -sS -Pn --open $1 -p 21,22,23,25,53,80,110,139,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,6667,8000,8080 -oN Scans/${1}/$1.txt
+	nmap -T4 -sS -Pn --open $1 -p 21,22,23,25,53,80,110,139,143,162,389,443,445,512,513,514,993,1433,1521,3306,3389,5432,5900,5901,6667,8000,8080 -oN Scans/${1}/$1.txt
 	echo -e "[${yellow}**${default}] Scan finished."
 	sleep 1
 }
